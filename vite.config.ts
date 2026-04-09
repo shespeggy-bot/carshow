@@ -7,4 +7,10 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: process.env.VITE_BASE ?? "/",
+  // 默认 5173 常被其它进程占用且错误返回 404，固定端口避免「打不开 / invalid response」
+  server: {
+    port: 5190,
+    strictPort: true,
+    host: true,
+  },
 })

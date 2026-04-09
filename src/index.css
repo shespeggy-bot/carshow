@@ -18,15 +18,22 @@
 
 body {
   margin: 0;
-  /* 视口底色，与页面主色 #000f2c 区分 */
-  background: #e8eaef;
+  background: #143886;
 }
 
 #root {
   min-height: 100dvh;
+  background: #143886;
 }
 
-/* 手机框内滚动：避免嵌套滚动链把整页拖走 */
+/* 手机框内滚动：避免嵌套滚动链把整页拖走；隐藏滚动条，保留滚动 */
 .phone-screen-scroll {
   touch-action: pan-y;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.phone-screen-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }

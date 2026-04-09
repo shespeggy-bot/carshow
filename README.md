@@ -2,6 +2,16 @@
 
 React + Vite + TypeScript + Tailwind，设计稿宽度 **750px**，主页面为 `AutoShowPage`。
 
+## 预览视觉
+
+1. **本地**：在项目根目录执行 `npm run dev`，浏览器打开：**[http://localhost:5190/](http://localhost:5190/)**（端口在 `vite.config.ts` 固定为 `5190`，避免与本机其它占用 5173 的进程冲突）。若仍打不开，请看下方「端口异常」。
+2. **线上（与部署一致）**：构建产物与 GitHub Pages 一致时，打开下方「在线预览」链接。本地开发时切图走 Figma MCP；线上走 `public/figma-assets/`。
+
+### 端口异常（localhost 打不开 / invalid response）
+
+- 先确认已在 **`chezhan-app` 目录**执行 `npm run dev`，且终端出现 `Local: http://localhost:5190/`。
+- 若提示端口被占用：在终端执行 `lsof -i :5190` 查看占用进程，结束后再启动；或临时改 `vite.config.ts` 里 `server.port` 为其它未占用端口（如 `5191`）。
+
 ## 在线预览（GitHub）
 
 - 仓库：<https://github.com/shespeggy-bot/carshow>
