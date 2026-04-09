@@ -39,11 +39,21 @@ export default function App() {
 
   const scaledH = DESIGN_H * scale;
 
+  const canvasBg = "#143886";
+  const bezel = "#141414";
+
   return (
-    <div className="flex min-h-dvh items-center justify-center bg-[#143886] p-3 sm:p-6">
+    <div
+      className="flex min-h-dvh items-center justify-center p-3 sm:p-6"
+      style={{ backgroundColor: canvasBg }}
+    >
       <div
-        className="flex h-[min(92dvh,880px)] w-[min(414px,calc(100vw-1.5rem))] flex-col overflow-hidden rounded-[2.75rem] border-[5px] border-[#141414] bg-[#141414] shadow-[0_24px_56px_rgba(0,0,0,0.38)]"
-        style={{ boxSizing: "border-box" }}
+        className="flex h-[min(92dvh,880px)] w-[min(414px,calc(100vw-1.5rem))] flex-col overflow-hidden rounded-[2.75rem] shadow-[0_24px_56px_rgba(0,0,0,0.38)]"
+        style={{
+          boxSizing: "border-box",
+          border: `5px solid ${bezel}`,
+          backgroundColor: bezel,
+        }}
       >
         {/* 刘海占位 */}
         <div className="pointer-events-none flex h-7 shrink-0 items-end justify-center bg-[#141414] pb-1">
