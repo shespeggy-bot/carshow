@@ -14,7 +14,8 @@ function assetUrl(filename: string): string {
   if (import.meta.env.DEV) {
     return `http://localhost:3845/assets/${filename}`;
   }
-  return `${trim(import.meta.env.BASE_URL)}figma-assets/${filename}`;
+  // BASE_URL 为 Vite 的 base（如 /carshow/），已带末尾 /，勿再 trim，否则会拼成 /carshowfigma-assets/
+  return `${import.meta.env.BASE_URL}figma-assets/${filename}`;
 }
 
 export const imgVector11 = assetUrl("7e56748152ca6e93efc83b20246e4985b6b5c392.svg");
