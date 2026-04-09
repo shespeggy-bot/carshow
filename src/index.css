@@ -23,5 +23,10 @@ body {
 }
 
 #root {
-  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* 手机框内滚动：避免嵌套滚动链把整页拖走 */
+.phone-screen-scroll {
+  touch-action: pan-y;
 }

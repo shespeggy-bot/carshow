@@ -2,6 +2,13 @@
 
 React + Vite + TypeScript + Tailwind，设计稿宽度 **750px**，主页面为 `AutoShowPage`。
 
+## 在线预览（GitHub）
+
+- 仓库：<https://github.com/shespeggy-bot/carshow>
+- 页面（GitHub Actions 部署成功后可用）：<https://shespeggy-bot.github.io/carshow/>
+
+若首次访问 404，请在仓库 **Settings → Pages** 将 **Build and deployment** 的 Source 设为 **GitHub Actions**，并等待 `Deploy to GitHub Pages` 工作流跑完。
+
 ## 开发
 
 ```bash
@@ -25,6 +32,12 @@ npm run assets:sync
 
 ```bash
 npm run build
+```
+
+部署到 GitHub Pages（子路径 `/carshow/`）时 CI 已设置 `VITE_BASE=/carshow/`；本地模拟：
+
+```bash
+VITE_BASE=/carshow/ npm run build
 ```
 
 ## 环境变量（可选）
