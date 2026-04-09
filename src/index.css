@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* Figma 导出中的 mask-* 工具类 */
+@layer utilities {
+  .mask-alpha {
+    mask-mode: alpha;
+    -webkit-mask-mode: alpha;
+  }
+  .mask-intersect {
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+  }
+  .mask-no-clip {
+    mask-clip: no-clip;
+    -webkit-mask-clip: no-clip;
+  }
+}
+
+body {
+  margin: 0;
+  /* 视口底色，与页面主色 #000f2c 区分 */
+  background: #e8eaef;
+}
+
+#root {
+  min-height: 100vh;
+}
