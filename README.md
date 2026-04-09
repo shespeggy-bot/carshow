@@ -5,9 +5,16 @@ React + Vite + TypeScript + Tailwind，设计稿宽度 **750px**，主页面为 
 ## 在线预览（GitHub）
 
 - 仓库：<https://github.com/shespeggy-bot/carshow>
-- 页面（GitHub Actions 部署成功后可用）：<https://shespeggy-bot.github.io/carshow/>
+- 页面：<https://shespeggy-bot.github.io/carshow/>
 
-若首次访问 404，请在仓库 **Settings → Pages** 将 **Build and deployment** 的 Source 设为 **GitHub Actions**，并等待 `Deploy to GitHub Pages` 工作流跑完。
+**若打开是 404**，请在本仓库完成一次设置并等待部署：
+
+1. **Settings → Pages → Build and deployment**
+2. **Source** 选 **Deploy from a branch**（不要选 GitHub Actions）
+3. **Branch** 选 **gh-pages**，文件夹选 **/ (root)**，点 Save
+4. 打开 **Actions** 确认 **Deploy to GitHub Pages** 已成功；也可手动 **Run workflow** 重跑
+
+首次推送后若还没有 `gh-pages` 分支，等 Actions 跑完会自动创建。
 
 ## 开发
 

@@ -1,44 +1,39 @@
-# 推送到 main 后构建并部署到 GitHub Pages
-# 需在仓库 Settings → Pages → Build and deployment → Source 选择 GitHub Actions
+# 构建后将 dist 推到 gh-pages 分支
+# 仓库 Settings → Pages → Build and deployment → Source：
+#   选「Deploy from a branch」→ Branch: gh-pages → Folder: / (root) → Save
 name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: npm
-      - run: npm ci
-      - name: Build
-        run: npm run build
+
+      - name: Install & build
+        run: npm ci && npm run build
         env:
           VITE_BASE: /carshow/
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Push dist to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
+          clean: true
